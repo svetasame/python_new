@@ -17,21 +17,20 @@
 # 6
 # -> 5
 
-from random import randint
-numbers=[]
+import random
+numbers = []
 n = int(input('Введите размер списка: '))
-for i in range (n):
-  numbers.append(randint(-10,10))
+numbers = [random.randint(-10, 10) for _ in range(n)]
 print(numbers)
 x = int(input('Введите число для поиска: '))
 quant = 0
 nearest = 0
-delta = abs (numbers[0] - x)
+delta = abs(numbers[0] - x)
 for item in numbers:
   if item == x:
-    quant +=1
+    quant += 1
   if x not in numbers:
-    if abs (item - x) < delta:
+    if abs(item - x) < delta:
       nearest = item
       delta = item - x
 if quant > 0:
