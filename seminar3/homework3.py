@@ -17,27 +17,27 @@
 # 6
 # -> 5
 
-# from random import randint
-# numbers=[]
-# n = int(input('Введите размер списка: '))
-# for i in range (n):
-#   numbers.append(randint(-10,10))
-# print(numbers)
-# x = int(input('Введите число для поиска: '))
-# quant = 0
-# nearest = 0
-# delta = abs (numbers[0] - x)
-# for item in numbers:
-#   if item == x:
-#     quant +=1
-#   if x not in numbers:
-#     if abs (item - x) < delta:
-#       nearest = item
-#       delta = item - x
-# if quant > 0:
-#   print(f'число {x} встречается в списке {quant} раз')
-# else:
-#   print(f'ближайшее число к {x} = {nearest}')
+from random import randint
+numbers=[]
+n = int(input('Введите размер списка: '))
+for i in range (n):
+  numbers.append(randint(-10,10))
+print(numbers)
+x = int(input('Введите число для поиска: '))
+quant = 0
+nearest = 0
+delta = abs (numbers[0] - x)
+for item in numbers:
+  if item == x:
+    quant +=1
+  if x not in numbers:
+    if abs (item - x) < delta:
+      nearest = item
+      delta = item - x
+if quant > 0:
+  print(f'число {x} встречается в списке {quant} раз')
+else:
+  print(f'ближайшее число к {x} = {nearest}')
 
 
 # Задача 20: В настольной игре Скрабл (Scrabble) каждая буква имеет определенную
