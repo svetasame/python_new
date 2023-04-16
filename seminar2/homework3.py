@@ -17,26 +17,54 @@
 # 6
 # -> 5
 
-from random import randint
-numbers=[]
-n = int(input('Введите размер списка: '))
-for i in range (n):
-  numbers.append(randint(-10,10))
-print(numbers)
-x = int(input('Введите число для поиска: '))
-quant = 0
-nearest = 0
-delta = abs (numbers[0] - x)
-for item in numbers:
-  if item == x:
-    quant +=1
-  if x not in numbers:
-    if abs (item - x) < delta:
-      nearest = item
-      delta = item - x
-if quant > 0:
-  print(f'число {x} встречается в списке {quant} раз')
-else:
-  print(f'ближайшее число к {x} = {nearest}')
+# from random import randint
+# numbers=[]
+# n = int(input('Введите размер списка: '))
+# for i in range (n):
+#   numbers.append(randint(-10,10))
+# print(numbers)
+# x = int(input('Введите число для поиска: '))
+# quant = 0
+# nearest = 0
+# delta = abs (numbers[0] - x)
+# for item in numbers:
+#   if item == x:
+#     quant +=1
+#   if x not in numbers:
+#     if abs (item - x) < delta:
+#       nearest = item
+#       delta = item - x
+# if quant > 0:
+#   print(f'число {x} встречается в списке {quant} раз')
+# else:
+#   print(f'ближайшее число к {x} = {nearest}')
 
 
+# Задача 20: В настольной игре Скрабл (Scrabble) каждая буква имеет определенную
+# ценность. В случае с английским алфавитом очки распределяются так:
+# ● A, E, I, O, U, L, N, S, T, R – 1 очко;
+# ● D, G – 2 очка;
+# ● B, C, M, P – 3 очка;
+# ● F, H, V, W, Y – 4 очка;
+# ● K – 5 очков;
+# ● J, X – 8 очков;
+# ● Q, Z – 10 очков.
+# А русские буквы оцениваются так:
+# ● А, В, Е, И, Н, О, Р, С, Т – 1 очко;
+# ● Д, К, Л, М, П, У – 2 очка;
+# ● Б, Г, Ё, Ь, Я – 3 очка;
+# ● Й, Ы – 4 очка;
+# ● Ж, З, Х, Ц, Ч – 5 очков;
+# ● Ш, Э, Ю – 8 очков;
+# ● Ф, Щ, Ъ – 10 очков.
+# Напишите программу, которая вычисляет стоимость введенного пользователем слова.
+# Будем считать, что на вход подается только одно слово, которое содержит либо только
+# английские, либо только русские буквы.
+
+scrabble = {1: 'AEIOULNSTRАВЕИНОРСТaeioulnstrавеинорст', 2: 'DGДКЛМПУdgдклмпу', 
+            3: 'BCMPБГЁЬЯbcmpбгёья', 4: 'FHVWYЙЫfhvwyйы', 
+            5: 'KЖЗХЦЧkжзхцч', 8: 'JXШЭЮjxшэю', 10: 'QZФЩЪqzфщъ'}
+word = input("Введите слово: ")
+score = [key for letter in word for key, value in scrabble.items() 
+         if letter in value]
+print(sum(score))
