@@ -18,7 +18,6 @@
 # -> 5
 
 import random
-numbers = []
 n = int(input('Введите размер списка: '))
 numbers = [random.randint(-10, 10) for _ in range(n)]
 print(numbers)
